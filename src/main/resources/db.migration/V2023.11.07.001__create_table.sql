@@ -25,4 +25,4 @@ create table if not exists views
     company_id       bigint references companies (id),
     price_quality_id bigint references price_qualities (id),
     user_id          bigint references users (id)
-)
+);
