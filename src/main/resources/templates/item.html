@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Specify your preferred font family */
+            background-color: silver; /* Specify your preferred background color */
+        }
+
+        button {
+            display: block;
+            margin: 10px;
+            padding: 12px; /* Adjust the padding as needed */
+            font-size: 18px; /* Adjust the font size as needed */
+            cursor: pointer;
+            background-color: #4caf50; /* Specify your preferred background color */
+            color: white; /* Specify your preferred text color */
+            border: none;
+            border-radius: 5px; /* Adjust the border radius as needed */
+        }
+
+        iframe {
+            width: 100%;
+            height: 80vh; /* Adjust the height as needed */
+        }
+    </style>
+</head>
+<body>
+<button onclick="goBack()">Back</button>
+<iframe id="myFrame" allowfullscreen="true"></iframe>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    document.getElementById('myFrame').src = '/mview?path=' + encodeURIComponent('[[${path}]]');
+</script>
+</body>
+</html>

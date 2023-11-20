@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: silver;
+            background-size: cover;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .item a {
+            text-decoration: none;
+            color: #3498db; /* синий цвет */
+        }
+    </style>
+</head>
+<body>
+
+<div th:each="item: ${list}">
+    <div class="item">
+        <p th:text="'Id: ' + ${item.getId()}"></p>
+        <p th:text="'Name: ' + ${item.getName()}"></p>
+        <p th:text="'Company: ' + ${item.getCompany()}"></p>
+        <a th:href="'/item?id=' + ${item.id}">Open</a>
+    </div>
+</div>
+
+</body>
+</html>
