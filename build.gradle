@@ -18,6 +18,8 @@ configurations {
 	}
 }
 
+
+
 repositories {
 	mavenCentral()
 }
@@ -34,11 +36,6 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.15.2'
-	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.15.2'
-	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.15.2'
-	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.15.2'
-	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.2.0'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }
 
@@ -50,4 +47,10 @@ apply plugin: 'war'
 
 tasks.named('test') {
 	useJUnitPlatform()
+
+}
+
+tasks.register('myRun', JavaExec) {
+	main = 'com.source.viewer.ViewerApplication'
+	classpath = sourceSets.main.runtimeClasspath
 }
